@@ -17,14 +17,14 @@ typedef struct LognormalTorqueCurve {
     // (1 / (x*sigma*sqrt(2pi))) * exp( (ln(x) - mu)^2 / (2*sigma^2) )
     double mu;
     double sigma;
-}
+} LognormalTorqueCurve;
 
 typedef struct SigmoidPowerCurve {
     // L / (1 + exp(-k*(x-x0)))
     double L;
     double k;
     double x0;
-}
+} SigmoidPowerCurve;
 
 typedef struct Transmission {
     double gearRatios[8]; // -3.0 -> 3.0 -> 2.0 -> 1.5 -> 1.2 -> 1.0 -> 0.85 -> 0.70
@@ -38,6 +38,7 @@ typedef struct Axel {
     double lateralGees[2];
     double combinedGees[2];
     double gripLimit; // 0.75
+    double massFraction; // 0.6; 0.4
     bool powered;
     bool softSpinning; // Exceeding the grip limit by a small amount causes the friction coefficients to drop to 0.1 (ice-like) randomly, for each physics tick
     bool hardSpinning; // Well exceeding the grip limit will set the friction coefficients to 0.1 no matter what
@@ -50,6 +51,10 @@ typedef struct Surfaces {
 typedef struct Aerodynamics {
 
 } Aerodynamics;
+
+typedef struct ExtraParameters {
+    int mass; // 907
+} ExtraParameters;
 
 typedef struct Environment {
     bool wet;
