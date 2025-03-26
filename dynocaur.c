@@ -26,8 +26,8 @@ typedef struct Axel {
     double combinedGees[2];
     double gripLimit; // 0.75
     bool powered;
-    bool soft_spinning; // Exceeding the grip limit by a small amount causes the friction coefficients to drop to 0.1 (ice-like) randomly, for each physics tick
-    bool hard_slipping; // Well exceeding the grip limit will set the friction coefficients to 0.1 no matter what
+    bool softSpinning; // Exceeding the grip limit by a small amount causes the friction coefficients to drop to 0.1 (ice-like) randomly, for each physics tick
+    bool hardSpinning; // Well exceeding the grip limit will set the friction coefficients to 0.1 no matter what
 } Axel;
 
 typedef struct Surfaces {
@@ -42,6 +42,13 @@ typedef struct Environment {
     bool wet;
     bool ice;
 } Environment;
+
+typedef struct StabilityAugumentation {
+    int ABSPulseRate; // 30
+    bool ABSTripped; // forces brakes open until next ABS tick
+    int TCSPulseRate; // 30
+    bool TCSTripped; // cuts engine power until next TCS tick
+} StabilityAugumentation;
 
 int main(){
     return 0;
