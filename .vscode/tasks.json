@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "compile",
+        "command": "gcc",
+        "args": ["dynocaur.c", "-Wall", "-Wextra", "-Werror", "-Og", "-m64"],
+        "options":{
+            "cwd": "${workspaceFolder}/"
+        }
+      }
+    ]
+  }
