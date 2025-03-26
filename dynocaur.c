@@ -13,6 +13,19 @@ typedef struct Powerplant {
 
 } Powerplant;
 
+typedef struct LognormalTorqueCurve {
+    // (1 / (x*sigma*sqrt(2pi))) * exp( (ln(x) - mu)^2 / (2*sigma^2) )
+    double mu;
+    double sigma;
+}
+
+typedef struct SigmoidPowerCurve {
+    // L / (1 + exp(-k*(x-x0)))
+    double L;
+    double k;
+    double x0;
+}
+
 typedef struct Transmission {
     double gearRatios[8]; // -3.0 -> 3.0 -> 2.0 -> 1.5 -> 1.2 -> 1.0 -> 0.85 -> 0.70
     double differentialRatio; // 3.11
