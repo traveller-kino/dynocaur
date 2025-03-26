@@ -41,6 +41,7 @@ typedef struct Aerodynamics {
 typedef struct Environment {
     bool wet;
     bool ice;
+    bool driftPhysicsEnabled; // disables TCS, and sets last axel to softSpinning mode when attempting to turn
 } Environment;
 
 typedef struct StabilityAugumentation {
